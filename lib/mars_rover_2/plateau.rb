@@ -6,5 +6,8 @@ module MarsRover
         raise("Plateau without limits is a dangerous place")
       end
     end
+    def limits
+      return @limits
+    end
   end
 end
