@@ -11,26 +11,28 @@ module MarsRover
       @position
     end
     def turnRight
-      current_direction =
       if @position[2] =="N"
         @position[2] = "E"
       elsif @position[2] == "S"
         @position[2] = "W"
       elsif @position[2] == "E"
         @position[2] = "S"
-      else
+      elsif @position[2] == "W"
         @position[2] ="N"
       end
       return Rover.new(@position)
     end
     def turnLeft
       if @position[2] =="N"
+        puts "form N to W"
         @position[2] = "W"
       elsif @position[2] == "S"
+        puts "from S to E"
         @position[2] = "E"
       elsif @position[2] == "E"
+        puts "from E to N"
         @position[2] = "N"
-      else
+      elsif @position[2] == "W"
         @position[2] ="S"
       end
       return Rover.new(@position)
@@ -43,7 +45,7 @@ module MarsRover
         @position[1] -= 1
       elsif  @position[2] == "E"
         @position[0] += 1
-      else
+      elsif @position[2] == "W"
         @position[0] -= 1
       end
       return Rover.new(@position)
