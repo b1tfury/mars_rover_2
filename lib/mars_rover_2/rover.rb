@@ -11,47 +11,42 @@ module MarsRover
       @position
     end
     def turnRight
-      current_direction = @position[2]
-      if current_direction =="N"
-        current_direction = "E"
-      elsif current_direction == "S"
-        current_direction = "W"
-      elsif current_direction == "E"
-        current_direction = "S"
+      current_direction =
+      if @position[2] =="N"
+        @position[2] = "E"
+      elsif @position[2] == "S"
+        @position[2] = "W"
+      elsif @position[2] == "E"
+        @position[2] = "S"
       else
-        current_direction ="N"
+        @position[2] ="N"
       end
-      @position[2] = current_direction
-      return @position
+      return Rover.new(@position)
     end
     def turnLeft
-      current_direction = @position[2]
-      if current_direction =="N"
-        current_direction = "W"
-      elsif current_direction == "S"
-        current_direction = "E"
-      elsif current_direction == "E"
-        current_direction = "N"
+      if @position[2] =="N"
+        @position[2] = "W"
+      elsif @position[2] == "S"
+        @position[2] = "E"
+      elsif @position[2] == "E"
+        @position[2] = "N"
       else
-        current_direction ="S"
+        @position[2] ="S"
       end
-      @position[2] = current_direction
-      return @position
+      return Rover.new(@position)
     end
     def move
-      x,y = @position[0] ,@position[1]
-      current_direction = @position[2]
-      if current_direction == "N"
-        y += 1
-      elsif current_direction == "S"
-        y -= 1
-      elsif  current_direction == "E"
-        x += 1
+      @position[2] = @position[2]
+      if @position[2] == "N"
+        @position[1] += 1
+      elsif @position[2] == "S"
+        @position[1] -= 1
+      elsif  @position[2] == "E"
+        @position[0] += 1
       else
-        x -= 1
+        @position[0] -= 1
       end
-      @position[0],@position[1] = x,y
-      @position
+      return Rover.new(@position)
     end
   end
 end
