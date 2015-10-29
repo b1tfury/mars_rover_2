@@ -34,4 +34,16 @@ module MarsRover
       expect(rov).not_to eq([1,1,"W"])
     end
   end
+  describe Rover,"#move" do
+    it "should move the rover 1 unit foreward in corresponding direction" do
+      rov = Rover.new([1,1,"N"]).move
+      expect(rov).to eq([1,2,"N"])
+      rov = Rover.new([1,1,"S"]).move
+      expect(rov).to eq([1,0,"S"])
+      rov = Rover.new([1,1,"E"]).move
+      expect(rov).not_to eq([2,1,"N"])
+      rov = Rover.new([1,1,"W"]).move
+      expect(rov).not_to eq([1,2,"W"])
+    end
+  end
 end

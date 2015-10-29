@@ -38,6 +38,21 @@ module MarsRover
       @position[2] = current_direction
       return @position
     end
+    def move
+      x,y = @position[0] ,@position[1]
+      current_direction = @position[2]
+      if current_direction == "N"
+        y += 1
+      elsif current_direction == "S"
+        y -= 1
+      elsif  current_direction == "E"
+        x += 1
+      else
+        x -= 1
+      end
+      @position[0],@position[1] = x,y
+      @position
+    end
   end
 end
 
