@@ -24,13 +24,10 @@ module MarsRover
     end
     def turnLeft
       if @position[2] =="N"
-        puts "form N to W"
         @position[2] = "W"
       elsif @position[2] == "S"
-        puts "from S to E"
         @position[2] = "E"
       elsif @position[2] == "E"
-        puts "from E to N"
         @position[2] = "N"
       elsif @position[2] == "W"
         @position[2] ="S"
