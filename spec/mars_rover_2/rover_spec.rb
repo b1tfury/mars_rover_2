@@ -17,9 +17,21 @@ module MarsRover
       rov =Rover.new([1,1,"S"]).turnRight
       expect(rov).to eq([1,1,"W"])
       rov =Rover.new([1,1,"E"]).turnRight
-      expect(rov).to eq([1,1,"S"])
+      expect(rov).not_to eq([1,1,"W"])
       rov =Rover.new([1,1,"W"]).turnRight
-      expect(rov).to eq([1,1,"N"])
+      expect(rov).not_to eq([1,1,"W"])
+    end
+  end
+  describe Rover,"#turnLeft" do
+    it "should turn rover in left direction" do
+      rov = Rover.new([1,1,"N"]).turnLeft
+      expect(rov).to eq([1,1,"W"])
+      rov = Rover.new([1,1,"S"]).turnLeft
+      expect(rov).to eq([1,1,"E"])
+      rov = Rover.new([1,1,"E"]).turnLeft
+      expect(rov).not_to eq([1,1,"S"])
+      rov = Rover.new([1,1,"W"]).turnLeft
+      expect(rov).not_to eq([1,1,"W"])
     end
   end
 end
