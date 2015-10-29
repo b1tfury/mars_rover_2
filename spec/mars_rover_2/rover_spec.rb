@@ -5,4 +5,9 @@ module MarsRover
       expect{Rover.new}.to raise_error(RuntimeError,"Initial co ordinates are missing")
     end
   end
+  describe Rover,"#position" do
+    it "should return the postion of rover at any monent " do
+      expect(Rover.new([1,1,"N"]).position).to eq([1,1,"N"])
+    end
+  end
 end

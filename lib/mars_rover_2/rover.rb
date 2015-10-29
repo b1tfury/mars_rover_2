@@ -7,5 +7,8 @@ module MarsRover
         raise("Initial co ordinates are missing")
       end
     end
+    def position
+      @position
+    end
   end
 end
